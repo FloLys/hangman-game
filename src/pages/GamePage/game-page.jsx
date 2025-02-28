@@ -16,6 +16,11 @@ export default function GamePage() {
   const startGame = useStartGame();
 
   useEffect(() => {
+    const keydownEvent = (e) => {
+      if (/^[a-zA-Z]$/.test(e.key)) {
+        checkGuess(e.key.toLowerCase());
+      }
+    };
     async function fetchPlayerRanking() {
       try {
         const response = await getPlayersRanking();
@@ -28,7 +33,11 @@ export default function GamePage() {
       }
     }
     fetchPlayerRanking();
-  }, []);
+    document.addEventListener("keydown", keydownEvent);
+    return () => {
+      document.removeEventListener("keydown", keydownEvent);
+    };
+  }, [checkGuess]);
 
   if (!gameState) {
     return <div>Loading...</div>;
@@ -46,15 +55,17 @@ export default function GamePage() {
   return (
     <div className="game-page">
       <section className="game-section">
-        <img alt="hanging stick" src={hangingStick}></img>
+        <section>
+          <img alt="hanging stick" src={hangingStick}></img>
 
-        <LetterInput
-          onGuess={checkGuess}
-          guessedLetters={
-            gameState.guessedLetters ||
-            (gameState.wordLength ? "_".repeat(gameState.wordLength) : "")
-          }
-        ></LetterInput>
+          <LetterInput
+            onGuess={checkGuess}
+            guessedLetters={
+              gameState.guessedLetters ||
+              (gameState.wordLength ? "_".repeat(gameState.wordLength) : "")
+            }
+          ></LetterInput>
+        </section>
 
         <section>
           <div className="game-stats">

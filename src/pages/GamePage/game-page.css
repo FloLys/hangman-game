@@ -17,9 +17,11 @@
 
 .game-section section {
   display: flex;
-  justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .game-stats {
@@ -33,9 +35,9 @@
   margin: 0 !important;
   color: red;
   font-size: 24px;
-} 
+}
 
-.stat-ranking  {
+.stat-ranking {
   margin: 0 !important;
   color: white;
   font-size: 24px;
@@ -64,5 +66,5 @@
 
 img {
   -webkit-filter: invert(1);
-   filter: invert(1);
+  filter: invert(1);
 }
