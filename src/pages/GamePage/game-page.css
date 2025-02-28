@@ -31,6 +31,13 @@
 
 .game-stats .stat {
   margin: 0 !important;
+  color: red;
+  font-size: 24px;
+} 
+
+.stat-ranking  {
+  margin: 0 !important;
+  color: white;
   font-size: 24px;
 }
 

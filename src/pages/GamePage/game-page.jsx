@@ -69,7 +69,7 @@ export default function GamePage() {
             <h4>Player Ranking:</h4>
             {gameRanking ? (
               gameRanking.map((ranking, index) => (
-                <p key={index} className="stat">
+                <p key={index} className="stat-ranking">
                   {ranking.playerName}
                 </p>
               ))
