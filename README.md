@@ -1,4 +1,4 @@
-![images/logo.png](https://github.com/FloLys/hangman-game/blob/main/hangman.png)
+![hangman.png](/hangman.png)
 
 
 ## Clone Repository
