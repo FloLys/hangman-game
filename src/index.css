@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   padding: 30px;
   color: white;
   font-family: "Bungee";
@@ -23,10 +23,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 header {
-  position: absolute;
+  position: relative;
   top: 0;
 }
 

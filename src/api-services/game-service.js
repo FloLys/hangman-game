@@ -36,3 +36,14 @@ export async function getGameData(gameId) {
     throw new Error(error);
   }
 }
+
+export async function getPlayersRanking() {
+  try {
+    const response = await fetch(`${API_URL}/ranking`, {
+      method: "GET",
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(error);
+  }
+}

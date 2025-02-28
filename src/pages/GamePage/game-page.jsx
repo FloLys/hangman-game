@@ -1,8 +1,10 @@
 import './game-page.css';
 
 import { Box, Button, Modal, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 
-import { getGameData } from '../../api-services/game-service';
+import { getGameData, getPlayersRanking } from '../../api-services/game-service';
+import hangingStick from '../../assets/hanging-stick.png';
 import { LetterInput } from '../../components/letter-input-component';
 import gameMessages from '../../constants/modal-configs.json';
 import { useGameLogic } from '../../hooks/use-game-logic';
@@ -10,7 +12,23 @@ import useStartGame from '../../hooks/use-start-game';
 
 export default function GamePage() {
   const { gameState, checkGuess } = useGameLogic();
+  const [gameRanking, setGameRanking] = useState(null);
   const startGame = useStartGame();
+
+  useEffect(() => {
+    async function fetchPlayerRanking() {
+      try {
+        const response = await getPlayersRanking();
+        if (response) {
+          console.log(response);
+          setGameRanking(response);
+        }
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+    fetchPlayerRanking();
+  }, []);
 
   if (!gameState) {
     return <div>Loading...</div>;
@@ -28,6 +46,8 @@ export default function GamePage() {
   return (
     <div className="game-page">
       <section className="game-section">
+        <img alt="hanging stick" src={hangingStick}></img>
+
         <LetterInput
           onGuess={checkGuess}
           guessedLetters={
@@ -45,12 +65,22 @@ export default function GamePage() {
             <h4>Attempts Left:</h4>
             <p className="stat">{gameState.attemptsLeft}</p>
           </div>
+          <div className="game-stats">
+            <h4>Player Ranking:</h4>
+            {gameRanking ? (
+              gameRanking.map((ranking, index) => (
+                <p key={index} className="stat">
+                  {ranking.playerName}
+                </p>
+              ))
+            ) : (
+              <p className="stat">Loading ranking...</p>
+            )}
+          </div>
         </section>
       </section>
 
-      <Modal
-        open={gameState.isFinished}
-      >
+      <Modal open={gameState.isFinished}>
         <Box className="modal-box">
           <Typography id="modal-title" variant="h6" component="h2">
             {gameState.isWon

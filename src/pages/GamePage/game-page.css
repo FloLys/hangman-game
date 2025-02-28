@@ -1,7 +1,6 @@
 .game-page {
   padding: 20px;
   text-align: center;
-  width: 100%;
   height: 100%;
 }
 
@@ -18,9 +17,9 @@
 
 .game-section section {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .game-stats {
@@ -54,4 +53,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+img {
+  -webkit-filter: invert(1);
+   filter: invert(1);
 }
