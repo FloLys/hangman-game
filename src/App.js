@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { GameProvider } from './contexts/game-context';
+import { GameContext } from './contexts/game-context';
 import routes from './routes';
 
 function App() {
   return (
-    <GameProvider>
+    <GameContext>
       <BrowserRouter>
         <Routes>
           {routes.map((route, index) => {
@@ -16,7 +16,7 @@ function App() {
           })}
         </Routes>
       </BrowserRouter>
-    </GameProvider>
+    </GameContext>
   );
 }
 

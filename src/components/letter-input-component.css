@@ -1,0 +1,40 @@
+.letter-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.letter-input-display {
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: white;
+  user-select: none;
+}
+
+.char {
+  border-bottom: 2px solid white;
+  padding: 0 5px;
+  display: inline-block;
+  min-width: 30px;
+  text-align: center;
+}
+
+form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  width: 100%;
+  caret-color: white;
+}

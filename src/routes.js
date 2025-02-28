@@ -1,5 +1,5 @@
-import GamePage from './pages/game-page';
-import StartPage from './pages/start-page';
+import GamePage from './pages/GamePage/game-page';
+import StartPage from './pages/StartPage/start-page';
 
 const routes = [
   {

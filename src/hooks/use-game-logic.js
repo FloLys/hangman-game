@@ -9,7 +9,7 @@ export const useGameLogic = () => {
   const { gameState, setGameState } = useGame();
 
   useEffect(() => {
-    if (!gameState || gameState === undefined) {
+    if (!gameState || gameState.id === undefined) {
       navigate("/");
     }
   }, [gameState, navigate]);

@@ -8,6 +8,9 @@ const useStartGame = () => {
   const { setGameState } = useGame();
 
   const handleStartGame = async (playerName) => {
+    if (!playerName.trim()) {
+      return;
+    }
     try {
       const response = await startGame(playerName);
       if (response) {

@@ -1,0 +1,9 @@
+.player-input {
+  font-size: 40px !important;
+  padding: 20px;
+}
+
+.player-input input {
+  text-align: center;
+  color: white;
+}

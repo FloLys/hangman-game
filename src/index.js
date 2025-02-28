@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <header>
-      <h1>Hangman Game</h1>
+      <h1>Hangman</h1>
     </header>
     <App />
   </React.StrictMode>
