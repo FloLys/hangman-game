@@ -1,0 +1,10 @@
+{
+  "gameWin": {
+    "title": "You Won!",
+    "content": "Have a cake"
+  },
+  "gameFail": {
+    "title": "You failed :C",
+    "content": "Better luck next time"
+  }
+}
